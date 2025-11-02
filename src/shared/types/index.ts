@@ -3,7 +3,7 @@ export interface ApiError {
   message: string;
 }
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   data?: T;
   error?: ApiError;
 }
@@ -14,9 +14,9 @@ export interface User {
 }
 
 export interface BaseApiRequest {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface BaseApiResponse {
-  [key: string]: any;
+  [key: string]: unknown;
 }

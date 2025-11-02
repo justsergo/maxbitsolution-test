@@ -5,9 +5,15 @@ export const API_ENDPOINTS = {
     LOGIN: '/login',
     REGISTER: '/register',
   },
-  MOVIES: '/movies',
+  MOVIES: {
+    LIST: '/movies',
+    SESSIONS: (movieId: number) => `/movies/${movieId}/sessions`,
+  },
   CINEMAS: '/cinemas',
-  MOVIE_SESSIONS: '/movieSessions',
+  MOVIE_SESSIONS: {
+    DETAIL: (sessionId: number) => `/movieSessions/${sessionId}`,
+    BOOK: (sessionId: number) => `/movieSessions/${sessionId}`,
+  },
   BOOKINGS: '/bookings',
   ME: {
     BOOKINGS: '/me/bookings',

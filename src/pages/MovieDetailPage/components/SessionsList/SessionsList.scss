@@ -1,0 +1,38 @@
+.sessions-list {
+  &__empty {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+    color: #ccc;
+  }
+
+  &__date-group {
+    margin-bottom: 40px;
+  }
+
+  &__date {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+  }
+
+  &__cinema {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 40px;
+  }
+
+  &__cinema-name {
+    font-size: 18px;
+    min-width: 200px;
+  }
+
+  &__times {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}

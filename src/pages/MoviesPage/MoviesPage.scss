@@ -1,0 +1,45 @@
+.movies-page {
+  padding: 40px;
+  background-color: #000;
+  color: #fff;
+
+  &__loading,
+  &__error {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+  }
+
+  &__error {
+    color: #ff4444;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px 200px 200px;
+    gap: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: normal;
+    align-items: center;
+  }
+
+  &__header-title {
+    text-align: left;
+  }
+
+  &__header-duration {
+    text-align: center;
+  }
+
+  &__header-rating {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}

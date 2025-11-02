@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { authSlice } from '../features/auth/model/authSlice';
+import type { RootState } from '../app/store';
 
 const createTestStore = (preloadedState = {}) => {
   return configureStore({
@@ -18,7 +19,7 @@ const createTestStore = (preloadedState = {}) => {
 };
 
 interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
-  preloadedState?: any;
+  preloadedState?: Partial<RootState>;
   store?: ReturnType<typeof createTestStore>;
 }
 

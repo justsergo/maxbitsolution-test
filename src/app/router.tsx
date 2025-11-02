@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from '../shared/ui/Layout';
 import { MoviesPage } from '../pages/MoviesPage';
+import { MovieDetailPage } from '../pages/MovieDetailPage';
 import { CinemasPage } from '../pages/CinemasPage';
 import { MyTicketsPage } from '../pages/MyTicketsPage';
 import { LoginPage } from '../pages/LoginPage';
@@ -13,6 +14,7 @@ export const AppRouter = () => {
       <Route path={ROUTES.HOME} element={<Layout />}>
         <Route index element={<Navigate to={ROUTES.MOVIES} replace />} />
         <Route path="movies" element={<MoviesPage />} />
+        <Route path="movies/:movieId" element={<MovieDetailPage />} />
         <Route path="cinemas" element={<CinemasPage />} />
         <Route path="my-tickets" element={<MyTicketsPage />} />
       </Route>
