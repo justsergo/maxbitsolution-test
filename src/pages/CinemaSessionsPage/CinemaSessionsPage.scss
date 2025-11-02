@@ -1,0 +1,23 @@
+.cinema-sessions-page {
+  padding: 40px;
+  background-color: #000;
+  color: #fff;
+
+  &__loading,
+  &__error {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+  }
+
+  &__error {
+    color: #ff4444;
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: normal;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+}

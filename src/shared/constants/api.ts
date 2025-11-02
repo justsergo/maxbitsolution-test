@@ -9,7 +9,10 @@ export const API_ENDPOINTS = {
     LIST: '/movies',
     SESSIONS: (movieId: number) => `/movies/${movieId}/sessions`,
   },
-  CINEMAS: '/cinemas',
+  CINEMAS: {
+    LIST: '/cinemas',
+    SESSIONS: (cinemaId: number) => `/cinemas/${cinemaId}/sessions`,
+  },
   MOVIE_SESSIONS: {
     DETAIL: (sessionId: number) => `/movieSessions/${sessionId}`,
     BOOK: (sessionId: number) => `/movieSessions/${sessionId}`,

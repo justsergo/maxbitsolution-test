@@ -1,7 +1,8 @@
-import type { MovieSession } from '../../features/movies/types';
+import type { MovieSession, Cinema } from '../../features/movies/types';
 
 export interface SessionsListProps {
   sessions: MovieSession[];
+  cinemas: Cinema[];
 }
 
 export interface SessionTimeButtonProps {

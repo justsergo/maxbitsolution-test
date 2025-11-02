@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useGetMoviesQuery, useGetMovieSessionsQuery } from '../../features/movies/api/moviesApi';
+import { useGetCinemasQuery } from '../../features/cinemas/api/cinemasApi';
 import { API_BASE_URL } from '../../shared/constants';
 import { SessionsList } from './components/SessionsList';
 import './MovieDetailPage.scss';
@@ -10,6 +11,7 @@ export const MovieDetailPage = () => {
 
   const { data: movies, isLoading: moviesLoading } = useGetMoviesQuery();
   const { data: sessions, isLoading: sessionsLoading, error: sessionsError } = useGetMovieSessionsQuery(movieIdNum);
+  const { data: cinemas } = useGetCinemasQuery();
 
   const movie = movies?.find(m => m.id === movieIdNum);
 
@@ -66,7 +68,7 @@ export const MovieDetailPage = () => {
       </div>
 
       <div className="movie-detail-page__sessions">
-        <SessionsList sessions={sessions || []} />
+        <SessionsList sessions={sessions || []} cinemas={cinemas || []} />
       </div>
     </div>
   );

@@ -1,0 +1,71 @@
+.cinema-sessions-list {
+  &__empty {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 40px;
+  }
+
+  &__date-group {
+    margin-bottom: 40px;
+  }
+
+  &__date {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+  }
+
+  &__movie {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__movie-poster {
+    width: 60px;
+    height: 90px;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    flex-shrink: 0;
+  }
+
+  &__movie-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__movie-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #666;
+  }
+
+  &__movie-name {
+    font-size: 18px;
+    color: #fff;
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+
+  &__times {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+}

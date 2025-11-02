@@ -1,0 +1,1 @@
+export { CinemaSessionsList } from './CinemaSessionsList';

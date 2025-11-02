@@ -3,6 +3,7 @@ import { Layout } from '../shared/ui/Layout';
 import { MoviesPage } from '../pages/MoviesPage';
 import { MovieDetailPage } from '../pages/MovieDetailPage';
 import { CinemasPage } from '../pages/CinemasPage';
+import { CinemaSessionsPage } from '../pages/CinemaSessionsPage';
 import { MyTicketsPage } from '../pages/MyTicketsPage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
@@ -16,6 +17,7 @@ export const AppRouter = () => {
         <Route path="movies" element={<MoviesPage />} />
         <Route path="movies/:movieId" element={<MovieDetailPage />} />
         <Route path="cinemas" element={<CinemasPage />} />
+        <Route path="cinemas/:cinemaId/sessions" element={<CinemaSessionsPage />} />
         <Route path="my-tickets" element={<MyTicketsPage />} />
       </Route>
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />

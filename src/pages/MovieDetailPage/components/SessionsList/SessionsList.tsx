@@ -2,7 +2,7 @@ import { SessionTimeButton } from '../SessionTimeButton';
 import type { SessionsListProps } from '../../types';
 import './SessionsList.scss';
 
-export const SessionsList = ({ sessions }: SessionsListProps) => {
+export const SessionsList = ({ sessions, cinemas }: SessionsListProps) => {
   const groupedSessions = sessions.reduce((acc, session) => {
     const date = new Date(session.startTime).toLocaleDateString('ru-RU', {
       day: '2-digit',
@@ -12,7 +12,8 @@ export const SessionsList = ({ sessions }: SessionsListProps) => {
       acc[date] = {};
     }
     
-    const cinemaName = session.cinema?.name || 'Неизвестный кинотеатр';
+    const cinema = cinemas.find(c => c.id === session.cinemaId);
+    const cinemaName = cinema?.name || 'Неизвестный кинотеатр';
     if (!acc[date][cinemaName]) {
       acc[date][cinemaName] = [];
     }
