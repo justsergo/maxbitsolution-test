@@ -7,5 +7,5 @@ export const ROUTES = {
   MY_TICKETS: '/my-tickets',
   LOGIN: '/login',
   REGISTER: '/register',
-  SESSION_BOOKING: (sessionId: number) => `/sessions/${sessionId}/booking`,
+  SESSION_BOOKING: (sessionId: number) => `/movieSessions/${sessionId}/booking`,
 } as const;

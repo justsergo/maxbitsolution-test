@@ -5,7 +5,3 @@ export interface SessionsListProps {
   cinemas: Cinema[];
 }
 
-export interface SessionTimeButtonProps {
-  sessionId: number;
-  time: string;
-}

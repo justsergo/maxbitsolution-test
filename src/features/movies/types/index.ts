@@ -29,7 +29,7 @@ export interface MovieSessionDetail extends MovieSession {
     seatsPerRow: number;
   };
   bookedSeats: Array<{
-    row: number;
-    seat: number;
+    rowNumber: number;
+    seatNumber: number;
   }>;
 }

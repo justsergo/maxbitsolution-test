@@ -15,6 +15,7 @@ export const authApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['User'],
   endpoints: (builder) => ({
     login: builder.mutation<AuthResponse, LoginRequest>({
       query: (credentials) => ({
@@ -22,6 +23,7 @@ export const authApi = createApi({
         method: 'POST',
         body: credentials,
       }),
+      invalidatesTags: ['User'],
     }),
     register: builder.mutation<AuthResponse, RegisterRequest>({
       query: (credentials) => ({
@@ -29,6 +31,7 @@ export const authApi = createApi({
         method: 'POST',
         body: credentials,
       }),
+      invalidatesTags: ['User'],
     }),
   }),
 });

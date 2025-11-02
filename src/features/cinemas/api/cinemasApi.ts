@@ -15,12 +15,17 @@ export const cinemasApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['Cinema', 'CinemaSession'],
   endpoints: (builder) => ({
     getCinemas: builder.query<Cinema[], void>({
       query: () => API_ENDPOINTS.CINEMAS.LIST,
+      providesTags: ['Cinema'],
     }),
     getCinemaSessions: builder.query<MovieSession[], number>({
       query: (cinemaId) => API_ENDPOINTS.CINEMAS.SESSIONS(cinemaId),
+      providesTags: (_, __, cinemaId) => [
+        { type: 'CinemaSession', id: cinemaId }
+      ],
     }),
   }),
 });

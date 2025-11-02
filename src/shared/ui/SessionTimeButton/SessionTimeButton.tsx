@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
-import type { SessionTimeButtonProps } from '../../types';
+import { ROUTES } from '../../constants';
 import './SessionTimeButton.scss';
+
+interface SessionTimeButtonProps {
+  sessionId: number;
+  time: string;
+}
 
 export const SessionTimeButton = ({ sessionId, time }: SessionTimeButtonProps) => {
   return (
     <Link 
-      to={`/sessions/${sessionId}/booking`}
+      to={ROUTES.SESSION_BOOKING(sessionId)}
       className="session-time-button"
     >
       {time}

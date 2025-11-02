@@ -15,15 +15,23 @@ export const moviesApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['Movie', 'MovieSession', 'MovieSessionDetail'],
   endpoints: (builder) => ({
     getMovies: builder.query<Movie[], void>({
       query: () => API_ENDPOINTS.MOVIES.LIST,
+      providesTags: ['Movie'],
     }),
     getMovieSessions: builder.query<MovieSession[], number>({
       query: (movieId) => API_ENDPOINTS.MOVIES.SESSIONS(movieId),
+      providesTags: (_, __, movieId) => [
+        { type: 'MovieSession', id: movieId }
+      ],
     }),
     getMovieSessionDetail: builder.query<MovieSessionDetail, number>({
       query: (sessionId) => API_ENDPOINTS.MOVIE_SESSIONS.DETAIL(sessionId),
+      providesTags: (_, __, sessionId) => [
+        { type: 'MovieSessionDetail', id: sessionId }
+      ],
     }),
   }),
 });

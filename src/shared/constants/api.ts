@@ -15,7 +15,7 @@ export const API_ENDPOINTS = {
   },
   MOVIE_SESSIONS: {
     DETAIL: (sessionId: number) => `/movieSessions/${sessionId}`,
-    BOOK: (sessionId: number) => `/movieSessions/${sessionId}`,
+    BOOK: (sessionId: number) => `/movieSessions/${sessionId}/bookings`,
   },
   BOOKINGS: '/bookings',
   ME: {

@@ -1,0 +1,46 @@
+.seat-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  background-color: #000;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+
+  &--available {
+    background-color: #000;
+    border-color: #fff;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &--selected {
+    background-color: #4A90E2;
+    border-color: #4A90E2;
+
+    &:hover {
+      background-color: #357ABD;
+    }
+  }
+
+  &--booked {
+    background-color: #D2727D;
+    border-color: #D2727D;
+    cursor: not-allowed;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: #000;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

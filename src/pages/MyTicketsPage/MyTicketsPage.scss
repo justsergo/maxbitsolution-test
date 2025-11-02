@@ -1,0 +1,25 @@
+.my-tickets-page {
+  padding: 40px;
+  background-color: #000;
+  color: #fff;
+
+  &__title {
+    font-size: 48px;
+    font-weight: normal;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+  }
+
+  &__message {
+    font-size: 18px;
+    color: #ccc;
+    text-align: center;
+  }
+}

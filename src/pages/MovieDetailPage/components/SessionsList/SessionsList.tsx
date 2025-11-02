@@ -1,4 +1,4 @@
-import { SessionTimeButton } from '../SessionTimeButton';
+import { SessionTimeButton } from '../../../../shared/ui/SessionTimeButton';
 import type { SessionsListProps } from '../../types';
 import './SessionsList.scss';
 

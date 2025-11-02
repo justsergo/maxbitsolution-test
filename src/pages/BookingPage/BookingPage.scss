@@ -1,0 +1,46 @@
+.booking-page {
+  padding: 40px;
+  background-color: #000;
+  color: #fff;
+
+  &__loading,
+  &__error {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+  }
+
+  &__error {
+    color: #ff4444;
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: normal;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-align: left;
+    
+    div {
+      color: #fff;
+    }
+  }
+
+  &__seat-map {
+    margin-bottom: 40px;
+    align-items: flex-start
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+}
