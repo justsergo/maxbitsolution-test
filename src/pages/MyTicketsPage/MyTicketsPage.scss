@@ -3,6 +3,17 @@
   background-color: #000;
   color: #fff;
 
+  &__loading,
+  &__error {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+  }
+
+  &__error {
+    color: #ff4444;
+  }
+
   &__title {
     font-size: 48px;
     font-weight: normal;
@@ -11,15 +22,7 @@
   }
 
   &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-  }
-
-  &__message {
-    font-size: 18px;
-    color: #ccc;
-    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }

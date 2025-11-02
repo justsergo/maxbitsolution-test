@@ -17,7 +17,10 @@ export const API_ENDPOINTS = {
     DETAIL: (sessionId: number) => `/movieSessions/${sessionId}`,
     BOOK: (sessionId: number) => `/movieSessions/${sessionId}/bookings`,
   },
-  BOOKINGS: '/bookings',
+  BOOKINGS: {
+    LIST: '/bookings',
+    PAYMENT: (bookingId: string) => `/bookings/${bookingId}/payments`,
+  },
   ME: {
     BOOKINGS: '/me/bookings',
   },

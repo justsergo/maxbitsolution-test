@@ -1,0 +1,31 @@
+.tickets-list {
+  &__empty {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 60px 20px;
+  }
+
+  &__section {
+    margin-bottom: 60px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

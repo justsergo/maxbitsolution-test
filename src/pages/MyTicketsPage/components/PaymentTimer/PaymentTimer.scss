@@ -1,0 +1,17 @@
+.payment-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+
+  &__label {
+    color: #ccc;
+  }
+
+  &__time {
+    color: #fff;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    min-width: 40px;
+  }
+}

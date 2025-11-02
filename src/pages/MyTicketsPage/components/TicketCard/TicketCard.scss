@@ -1,0 +1,51 @@
+.ticket-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 30px 0;
+  border-bottom: 1px solid #333;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__movie {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  &__cinema {
+    font-size: 16px;
+    color: #ccc;
+  }
+
+  &__datetime {
+    font-size: 16px;
+    color: #ccc;
+  }
+
+  &__seats {
+    font-size: 16px;
+    color: #fff;
+    white-space: pre-line;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__time-left {
+    font-size: 16px;
+    color: #ccc;
+  }
+}

@@ -15,7 +15,7 @@ export const bookingApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['MovieSessionDetail', 'MovieSession', 'CinemaSession'],
+  tagTypes: ['MovieSessionDetail', 'MovieSession', 'CinemaSession', 'Booking'],
   endpoints: (builder) => ({
     bookSeats: builder.mutation<BookingResponse, { sessionId: number; seats: BookingRequest }>({
       query: ({ sessionId, seats }) => ({
@@ -26,7 +26,8 @@ export const bookingApi = createApi({
       invalidatesTags: (_, __, { sessionId }) => [
         { type: 'MovieSessionDetail', id: sessionId },
         'MovieSession',
-        'CinemaSession'
+        'CinemaSession',
+        'Booking'
       ],
     }),
   }),

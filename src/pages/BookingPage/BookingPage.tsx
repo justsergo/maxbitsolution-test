@@ -5,6 +5,7 @@ import { useGetMovieSessionDetailQuery } from '../../features/movies/api/moviesA
 import { useBookSeatsMutation } from '../../features/booking/api/bookingApi';
 import { useGetMoviesQuery } from '../../features/movies/api/moviesApi';
 import { useGetCinemasQuery } from '../../features/cinemas/api/cinemasApi';
+import { useGetMyBookingsQuery } from '../../features/tickets/api/ticketsApi';
 import { SeatMap } from './components/SeatMap';
 import { Button } from '../../shared/ui/Button';
 import { ROUTES } from '../../shared/constants';
@@ -24,6 +25,7 @@ export const BookingPage = () => {
   const { data: sessionDetail, isLoading: sessionLoading, error: sessionError, refetch } = useGetMovieSessionDetailQuery(sessionIdNum);
   const { data: movies } = useGetMoviesQuery();
   const { data: cinemas } = useGetCinemasQuery();
+  const { refetch: refetchBookings } = useGetMyBookingsQuery(undefined, { skip: !isAuthenticated });
   const [bookSeats, { isLoading: bookingLoading }] = useBookSeatsMutation();
 
   const movie = movies?.find(m => m.id === sessionDetail?.movieId);
@@ -57,6 +59,9 @@ export const BookingPage = () => {
       }).unwrap();
       
       refetch();
+      if (isAuthenticated) {
+        refetchBookings();
+      }
       
       navigate(ROUTES.MY_TICKETS);
     } catch (error) {
