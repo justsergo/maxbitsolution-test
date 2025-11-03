@@ -1,5 +1,5 @@
 import { LookCinemaSessionsButton } from '@/shared/ui/LookCinemaSessionsButton';
-import type { CinemaCardProps } from '../types';
+import type { CinemaCardProps } from '../../types';
 import './CinemaCard.scss';
 
 export const CinemaCard = ({ id, name, address }: CinemaCardProps) => {

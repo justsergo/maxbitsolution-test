@@ -60,9 +60,7 @@ export const BookingPage = () => {
       }).unwrap();
       
       refetch();
-      if (isAuthenticated) {
-        refetchBookings();
-      }
+      refetchBookings();
       
       navigate(ROUTES.MY_TICKETS);
     } catch (error) {
@@ -114,9 +112,14 @@ export const BookingPage = () => {
       <div className="booking-page__actions">
         <Button 
           onClick={handleBooking}
-          disabled={bookingLoading || (!isAuthenticated && selectedSeats.length === 0)}
+          disabled={isAuthenticated ? (bookingLoading || selectedSeats.length === 0) : bookingLoading}
         >
-          {bookingLoading ? 'Бронирование...' : 'Забронировать'}
+          {!isAuthenticated 
+            ? 'Войти для бронирования' 
+            : bookingLoading 
+              ? 'Бронирование...' 
+              : 'Забронировать'
+          }
         </Button>
       </div>
     </div>

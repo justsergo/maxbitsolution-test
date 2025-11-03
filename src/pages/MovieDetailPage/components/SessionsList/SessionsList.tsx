@@ -1,9 +1,10 @@
 import { SessionTimeButton } from '@/shared/ui/SessionTimeButton';
-import type { SessionsListProps } from '../types';
+import type { SessionsListProps } from '../../types';
+import type { MovieSession, Cinema } from '@/features/movies/types';
 import './SessionsList.scss';
 
 export const SessionsList = ({ sessions, cinemas }: SessionsListProps) => {
-  const groupedSessions = sessions.reduce((acc, session) => {
+  const groupedSessions = sessions.reduce((acc: Record<string, Record<string, MovieSession[]>>, session: MovieSession) => {
     const date = new Date(session.startTime).toLocaleDateString('ru-RU', {
       day: '2-digit',
       month: '2-digit'
@@ -12,7 +13,7 @@ export const SessionsList = ({ sessions, cinemas }: SessionsListProps) => {
       acc[date] = {};
     }
     
-    const cinema = cinemas.find(c => c.id === session.cinemaId);
+        const cinema = cinemas.find((c: Cinema) => c.id === session.cinemaId);
     const cinemaName = cinema?.name || 'Неизвестный кинотеатр';
     if (!acc[date][cinemaName]) {
       acc[date][cinemaName] = [];
@@ -40,7 +41,7 @@ export const SessionsList = ({ sessions, cinemas }: SessionsListProps) => {
             <div key={cinemaName} className="sessions-list__cinema">
               <div className="sessions-list__cinema-name">{cinemaName}</div>
               <div className="sessions-list__times">
-                {cinemaSessions.map((session) => (
+                {cinemaSessions.map((session: MovieSession) => (
                   <SessionTimeButton
                     key={session.id}
                     sessionId={session.id}

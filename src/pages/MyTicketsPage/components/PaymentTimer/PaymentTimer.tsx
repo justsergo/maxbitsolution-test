@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from 'react';
 import { formatTime } from '@/shared/utils';
 import { calculatePaymentTimeLeft } from '@/features/tickets/utils';
-import type { PaymentTimerProps } from '../types';
+import type { PaymentTimerProps } from '../../types';
 import './PaymentTimer.scss';
 
 export const PaymentTimer = memo(({ bookingId, bookedAt, paymentTimeoutSeconds, onExpired }: PaymentTimerProps) => {
