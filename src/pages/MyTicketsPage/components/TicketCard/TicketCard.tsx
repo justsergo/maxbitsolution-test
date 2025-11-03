@@ -4,8 +4,9 @@ import { useGetMoviesQuery } from '@/features/movies/api/moviesApi';
 import { useGetCinemasQuery } from '@/features/cinemas/api/cinemasApi';
 import { PaymentTimer } from '../PaymentTimer';
 import { Button } from '@/shared/ui/Button';
+import { formatDateTime } from '@/shared/utils';
+import { formatSeats } from '@/features/booking/utils';
 import type { TicketCardProps } from '../../types';
-import type { Seat } from '@/features/booking/types';
 import './TicketCard.scss';
 
 export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketCardProps) => {
@@ -27,18 +28,6 @@ export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketC
     } catch (error) {
       console.error('Payment failed:', error);
     }
-  };
-
-  const formatDateTime = (dateTime: string) => {
-    const date = new Date(dateTime);
-    return {
-      date: date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' }),
-      time: date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })
-    };
-  };
-
-  const formatSeats = (seats: Seat[]) => {
-    return seats.map((seat: Seat) => `Ряд ${seat.rowNumber}, место ${seat.seatNumber}`).join('\n');
   };
 
   const sessionDateTime = sessionDetail?.startTime ? 

@@ -9,6 +9,7 @@ import { useGetMyBookingsQuery } from '@/features/tickets/api/ticketsApi';
 import { SeatMap } from './components/SeatMap';
 import { Button } from '@/shared/ui/Button';
 import { ROUTES } from '@/shared/constants';
+import { formatDateTime } from '@/shared/utils';
 import type { RootState } from '@/app/store';
 import type { Seat } from '@/features/booking/types';
 import './BookingPage.scss';
@@ -87,15 +88,7 @@ export const BookingPage = () => {
     );
   }
 
-  const formatTime = (startTime: string) => {
-    const date = new Date(startTime);
-    return {
-      date: date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' }),
-      time: date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })
-    };
-  };
-
-  const { date, time } = formatTime(sessionDetail.startTime);
+  const { date, time } = formatDateTime(sessionDetail.startTime);
 
   return (
     <div className="booking-page">

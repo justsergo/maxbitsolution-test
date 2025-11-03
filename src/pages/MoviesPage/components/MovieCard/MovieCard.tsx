@@ -1,17 +1,10 @@
 import { Icon } from '@/shared/ui/Icon';
 import { LookSessionsButton } from '@/shared/ui/LookSessionsButton';
+import { formatDuration, formatRating } from '@/features/movies/utils';
 import type { MovieCardProps } from '../types';
 import './MovieCard.scss';
 
 export const MovieCard = ({ id, title, lengthMinutes, rating, posterImage }: MovieCardProps) => {
-  const formatDuration = (minutes: number) => {
-    if (!minutes || isNaN(minutes)) {
-      return '0:00';
-    }
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return `${hours}:${mins.toString().padStart(2, '0')}`;
-  };
 
   return (
     <div className="movie-card">
@@ -34,7 +27,7 @@ export const MovieCard = ({ id, title, lengthMinutes, rating, posterImage }: Mov
       
       <div className="movie-card__title">{title}</div>
       <div className="movie-card__duration">{formatDuration(lengthMinutes)}</div>
-      <div className="movie-card__rating">{rating && !isNaN(rating) ? rating.toFixed(2) : '0.00'}</div>
+      <div className="movie-card__rating">{formatRating(rating)}</div>
       <div className="movie-card__actions">
         <LookSessionsButton movieId={id} />
       </div>
