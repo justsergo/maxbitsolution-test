@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_BASE_URL, API_ENDPOINTS } from '../../../shared/constants';
-import type { Cinema, MovieSession } from '../../movies/types';
-import type { RootState } from '../../../app/store';
+import { API_BASE_URL, API_ENDPOINTS } from '@/shared/constants';
+import type { Cinema, MovieSession } from '../types';
+import type { RootState } from '@/app/store';
 
 export const cinemasApi = createApi({
   reducerPath: 'cinemasApi',

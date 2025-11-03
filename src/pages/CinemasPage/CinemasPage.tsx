@@ -1,4 +1,4 @@
-import { useGetCinemasQuery } from '../../features/cinemas/api/cinemasApi';
+import { useGetCinemasQuery } from '@/features/cinemas/api/cinemasApi';
 import { CinemaCard } from './components/CinemaCard';
 import './CinemasPage.scss';
 

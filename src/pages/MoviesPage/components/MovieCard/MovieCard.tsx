@@ -1,6 +1,6 @@
-import { Icon } from '../../../../shared/ui/Icon';
-import { LookSessionsButton } from '../../../../shared/ui/LookSessionsButton';
-import type { MovieCardProps } from '../../types';
+import { Icon } from '@/shared/ui/Icon';
+import { LookSessionsButton } from '@/shared/ui/LookSessionsButton';
+import type { MovieCardProps } from '../types';
 import './MovieCard.scss';
 
 export const MovieCard = ({ id, title, lengthMinutes, rating, posterImage }: MovieCardProps) => {

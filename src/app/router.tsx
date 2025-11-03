@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Layout } from '../shared/ui/Layout';
-import { MoviesPage } from '../pages/MoviesPage';
-import { MovieDetailPage } from '../pages/MovieDetailPage';
-import { CinemasPage } from '../pages/CinemasPage';
-import { CinemaSessionsPage } from '../pages/CinemaSessionsPage';
-import { BookingPage } from '../pages/BookingPage';
-import { MyTicketsPage } from '../pages/MyTicketsPage';
-import { LoginPage } from '../pages/LoginPage';
-import { RegisterPage } from '../pages/RegisterPage';
-import { ROUTES } from '../shared/constants';
+import { Layout } from '@/shared/ui/Layout';
+import { MoviesPage } from '@/pages/MoviesPage';
+import { MovieDetailPage } from '@/pages/MovieDetailPage';
+import { CinemasPage } from '@/pages/CinemasPage';
+import { CinemaSessionsPage } from '@/pages/CinemaSessionsPage';
+import { BookingPage } from '@/pages/BookingPage';
+import { MyTicketsPage } from '@/pages/MyTicketsPage';
+import { LoginPage } from '@/pages/LoginPage';
+import { RegisterPage } from '@/pages/RegisterPage';
+import { ROUTES } from '@/shared/constants';
 
 export const AppRouter = () => {
   return (

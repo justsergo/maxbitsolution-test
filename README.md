@@ -45,4 +45,8 @@ src/
     ├── types/
     ├── constants/
     └── hooks/
-```
+
+__tests__/            # тесты
+├── features/
+├── pages/
+└── shared/

@@ -1,1 +1,1 @@
-export { SessionTimeButton } from './SessionTimeButton';
+export { SessionTimeButton } from '@/shared/ui/SessionTimeButton/SessionTimeButton';

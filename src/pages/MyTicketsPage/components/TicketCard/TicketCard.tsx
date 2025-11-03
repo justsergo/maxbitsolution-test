@@ -1,10 +1,11 @@
-import { usePayBookingMutation, useGetMyBookingsQuery } from '../../../../features/tickets/api/ticketsApi';
-import { useGetMovieSessionDetailQuery } from '../../../../features/movies/api/moviesApi';
-import { useGetMoviesQuery } from '../../../../features/movies/api/moviesApi';
-import { useGetCinemasQuery } from '../../../../features/cinemas/api/cinemasApi';
+import { usePayBookingMutation, useGetMyBookingsQuery } from '@/features/tickets/api/ticketsApi';
+import { useGetMovieSessionDetailQuery } from '@/features/movies/api/moviesApi';
+import { useGetMoviesQuery } from '@/features/movies/api/moviesApi';
+import { useGetCinemasQuery } from '@/features/cinemas/api/cinemasApi';
 import { PaymentTimer } from '../PaymentTimer';
-import { Button } from '../../../../shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import type { TicketCardProps } from '../../types';
+import type { Seat } from '@/features/booking/types';
 import './TicketCard.scss';
 
 export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketCardProps) => {
@@ -36,8 +37,8 @@ export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketC
     };
   };
 
-  const formatSeats = (seats: typeof booking.seats) => {
-    return seats.map(seat => `Ряд ${seat.rowNumber}, место ${seat.seatNumber}`).join('\n');
+  const formatSeats = (seats: Seat[]) => {
+    return seats.map((seat: Seat) => `Ряд ${seat.rowNumber}, место ${seat.seatNumber}`).join('\n');
   };
 
   const sessionDateTime = sessionDetail?.startTime ? 

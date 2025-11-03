@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { useLoginMutation } from '../../features/auth/api/authApi';
-import { useAppDispatch } from '../../shared/hooks/redux';
-import { setCredentials } from '../../features/auth/model/authSlice';
-import { Sidebar } from '../../shared/ui/Sidebar';
-import { ROUTES } from '../../shared/constants';
-import { type LoginFormData } from './types';
+import { useLoginMutation } from '@/features/auth/api/authApi';
+import { useAppDispatch } from '@/shared/hooks/redux';
+import { setCredentials } from '@/features/auth/model/authSlice';
+import { Sidebar } from '@/shared/ui/Sidebar';
+import { ROUTES } from '@/shared/constants';
+import { type LoginFormData } from '@/pages/LoginPage/types';
 import './LoginPage.scss';
 
 export const LoginPage = () => {

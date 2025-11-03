@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { PaymentTimerProps } from '../../types';
+import type { PaymentTimerProps } from '../types';
 import './PaymentTimer.scss';
 
 export const PaymentTimer = ({ bookingId, bookedAt, paymentTimeoutSeconds, onExpired }: PaymentTimerProps) => {

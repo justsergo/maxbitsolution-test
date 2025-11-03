@@ -1,1 +1,1 @@
-export { Icon } from './Icon';
+export { Icon } from '@/shared/ui/Icon/Icon';

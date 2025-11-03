@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from '../features/auth/api/authApi';
-import { moviesApi } from '../features/movies/api/moviesApi';
-import { cinemasApi } from '../features/cinemas/api/cinemasApi';
-import { bookingApi } from '../features/booking/api/bookingApi';
-import { ticketsApi, settingsApi } from '../features/tickets/api/ticketsApi';
-import { authSlice } from '../features/auth/model/authSlice';
+import { authApi } from '@/features/auth/api/authApi';
+import { moviesApi } from '@/features/movies/api/moviesApi';
+import { cinemasApi } from '@/features/cinemas/api/cinemasApi';
+import { bookingApi } from '@/features/booking/api/bookingApi';
+import { ticketsApi, settingsApi } from '@/features/tickets/api/ticketsApi';
+import { authSlice } from '@/features/auth/model/authSlice';
 
 export const store = configureStore({
   reducer: {

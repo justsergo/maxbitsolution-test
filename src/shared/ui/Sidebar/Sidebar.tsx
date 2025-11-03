@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../../hooks/redux';
-import { logout } from '../../../features/auth/model/authSlice';
-import { ROUTES } from '../../constants';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks/redux';
+import { logout } from '@/features/auth/model/authSlice';
+import { ROUTES } from '@/shared/constants';
 import './Sidebar.scss';
 
 export const Sidebar = () => {

@@ -1,5 +1,5 @@
-import { useGetMoviesQuery } from '../../features/movies/api/moviesApi';
-import { API_BASE_URL } from '../../shared/constants';
+import { useGetMoviesQuery } from '@/features/movies/api/moviesApi';
+import { API_BASE_URL } from '@/shared/constants';
 import { MovieCard } from './components/MovieCard';
 import './MoviesPage.scss';
 

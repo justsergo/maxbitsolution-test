@@ -1,4 +1,4 @@
-import type { SeatButtonProps } from '../../types';
+import type { SeatButtonProps } from '../types';
 import './SeatButton.scss';
 
 export const SeatButton = ({ 

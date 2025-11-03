@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import type { RootState } from '../../../app/store';
-import { ROUTES } from '../../constants';
+import type { RootState } from '@/app/store';
+import { ROUTES } from '@/shared/constants';
 
 interface ProtectedRouteProps {
   children: ReactNode;

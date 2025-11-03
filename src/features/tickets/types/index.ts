@@ -1,4 +1,4 @@
-import type { Seat } from '../../booking/types';
+import type { Seat } from '../types';
 
 export interface Booking {
   id: string;

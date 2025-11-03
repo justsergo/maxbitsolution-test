@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useGetMoviesQuery, useGetMovieSessionsQuery } from '../../features/movies/api/moviesApi';
-import { useGetCinemasQuery } from '../../features/cinemas/api/cinemasApi';
-import { API_BASE_URL } from '../../shared/constants';
+import { useGetMoviesQuery, useGetMovieSessionsQuery } from '@/features/movies/api/moviesApi';
+import { useGetCinemasQuery } from '@/features/cinemas/api/cinemasApi';
+import { API_BASE_URL } from '@/shared/constants';
 import { SessionsList } from './components/SessionsList';
 import './MovieDetailPage.scss';
 

@@ -1,4 +1,4 @@
-import type { Seat } from '../../features/booking/types';
+import type { Seat } from '@/features/booking/types';
 
 export interface SeatMapProps {
   rows: number;

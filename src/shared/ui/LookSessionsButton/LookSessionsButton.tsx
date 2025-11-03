@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../Button';
-import { ROUTES } from '../../constants';
+import { Button } from '@/shared/ui/Button';
+import { ROUTES } from '@/shared/constants';
 
 interface LookSessionsButtonProps {
   movieId: number;

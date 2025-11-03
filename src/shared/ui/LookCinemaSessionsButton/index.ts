@@ -1,1 +1,1 @@
-export { LookCinemaSessionsButton } from './LookCinemaSessionsButton';
+export { LookCinemaSessionsButton } from '@/shared/ui/LookCinemaSessionsButton/LookCinemaSessionsButton';

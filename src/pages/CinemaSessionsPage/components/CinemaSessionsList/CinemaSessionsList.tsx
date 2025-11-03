@@ -1,7 +1,7 @@
-import { SessionTimeButton } from '../../../../shared/ui/SessionTimeButton';
-import { Icon } from '../../../../shared/ui/Icon';
-import { API_BASE_URL } from '../../../../shared/constants';
-import type { CinemaSessionsListProps } from '../../types';
+import { SessionTimeButton } from '@/shared/ui/SessionTimeButton';
+import { Icon } from '@/shared/ui/Icon';
+import { API_BASE_URL } from '@/shared/constants';
+import type { CinemaSessionsListProps } from '../types';
 import './CinemaSessionsList.scss';
 
 export const CinemaSessionsList = ({ sessions, movies }: CinemaSessionsListProps) => {

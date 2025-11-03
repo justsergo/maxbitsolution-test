@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useGetMovieSessionDetailQuery } from '../../features/movies/api/moviesApi';
-import { useBookSeatsMutation } from '../../features/booking/api/bookingApi';
-import { useGetMoviesQuery } from '../../features/movies/api/moviesApi';
-import { useGetCinemasQuery } from '../../features/cinemas/api/cinemasApi';
-import { useGetMyBookingsQuery } from '../../features/tickets/api/ticketsApi';
+import { useGetMovieSessionDetailQuery } from '@/features/movies/api/moviesApi';
+import { useBookSeatsMutation } from '@/features/booking/api/bookingApi';
+import { useGetMoviesQuery } from '@/features/movies/api/moviesApi';
+import { useGetCinemasQuery } from '@/features/cinemas/api/cinemasApi';
+import { useGetMyBookingsQuery } from '@/features/tickets/api/ticketsApi';
 import { SeatMap } from './components/SeatMap';
-import { Button } from '../../shared/ui/Button';
-import { ROUTES } from '../../shared/constants';
-import type { RootState } from '../../app/store';
-import type { Seat } from '../../features/booking/types';
+import { Button } from '@/shared/ui/Button';
+import { ROUTES } from '@/shared/constants';
+import type { RootState } from '@/app/store';
+import type { Seat } from '@/features/booking/types';
 import './BookingPage.scss';
 
 export const BookingPage = () => {

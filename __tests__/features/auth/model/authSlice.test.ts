@@ -1,5 +1,5 @@
-import { authSlice, setCredentials, logout } from '../authSlice';
-import type { AuthState } from '../../types';
+import { authSlice, setCredentials, logout } from '@/features/auth/model/authSlice';
+import type { AuthState } from '@/features/auth/types';
 
 describe('authSlice', () => {
   const initialState: AuthState = {

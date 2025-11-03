@@ -1,4 +1,4 @@
-import type { Booking } from '../../features/tickets/types';
+import type { Booking } from '@/features/tickets/types';
 
 export interface TicketsListProps {
   bookings: Booking[];

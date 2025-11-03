@@ -1,8 +1,8 @@
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
-import { render } from '../../../shared/test-utils';
-import { RegisterPage } from '../RegisterPage';
+import { render } from '@/shared/test-utils';
+import { RegisterPage } from '@/pages/RegisterPage/RegisterPage';
 
 const mockNavigate = vi.fn();
 
@@ -15,7 +15,7 @@ vi.mock('react-router-dom', async () => {
 });
 
 const mockRegister = vi.fn();
-vi.mock('../../../features/auth/api/authApi', () => ({
+vi.mock('@/features/auth/api/authApi', () => ({
   authApi: {
     reducer: vi.fn(),
     reducerPath: 'authApi',

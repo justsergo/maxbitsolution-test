@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../constants';
+import { ROUTES } from '@/shared/constants';
 import './SessionTimeButton.scss';
 
 interface SessionTimeButtonProps {

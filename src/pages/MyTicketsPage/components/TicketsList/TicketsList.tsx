@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { TicketCard } from '../TicketCard';
 import type { TicketsListProps } from '../../types';
-import type { Booking } from '../../../../features/tickets/types';
+import type { Booking } from '@/features/tickets/types';
 import './TicketsList.scss';
 
 export const TicketsList = ({ bookings, paymentTimeoutSeconds }: TicketsListProps) => {
@@ -12,7 +12,7 @@ export const TicketsList = ({ bookings, paymentTimeoutSeconds }: TicketsListProp
     const upcoming: Booking[] = [];
     const past: Booking[] = [];
 
-    bookings.forEach(booking => {
+    bookings.forEach((booking: Booking) => {
       if (!booking.isPaid) {
         const bookedTime = new Date(booking.bookedAt);
         const expiryTime = new Date(bookedTime.getTime() + paymentTimeoutSeconds * 1000);

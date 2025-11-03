@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { useGetCinemasQuery, useGetCinemaSessionsQuery } from '../../features/cinemas/api/cinemasApi';
-import { useGetMoviesQuery } from '../../features/movies/api/moviesApi';
+import { useGetCinemasQuery, useGetCinemaSessionsQuery } from '@/features/cinemas/api/cinemasApi';
+import { useGetMoviesQuery } from '@/features/movies/api/moviesApi';
 import { CinemaSessionsList } from './components/CinemaSessionsList';
 import './CinemaSessionsPage.scss';
 

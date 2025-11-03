@@ -1,5 +1,5 @@
-import { SessionTimeButton } from '../../../../shared/ui/SessionTimeButton';
-import type { SessionsListProps } from '../../types';
+import { SessionTimeButton } from '@/shared/ui/SessionTimeButton';
+import type { SessionsListProps } from '../types';
 import './SessionsList.scss';
 
 export const SessionsList = ({ sessions, cinemas }: SessionsListProps) => {

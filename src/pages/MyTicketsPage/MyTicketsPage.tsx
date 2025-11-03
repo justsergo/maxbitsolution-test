@@ -1,6 +1,6 @@
-import { useGetMyBookingsQuery } from '../../features/tickets/api/ticketsApi';
-import { useGetSettingsQuery } from '../../features/tickets/api/ticketsApi';
-import { ProtectedRoute } from '../../shared/ui/ProtectedRoute';
+import { useGetMyBookingsQuery } from '@/features/tickets/api/ticketsApi';
+import { useGetSettingsQuery } from '@/features/tickets/api/ticketsApi';
+import { ProtectedRoute } from '@/shared/ui/ProtectedRoute';
 import { TicketsList } from './components/TicketsList';
 import './MyTicketsPage.scss';
 

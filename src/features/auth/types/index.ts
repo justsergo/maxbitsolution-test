@@ -1,4 +1,4 @@
-import { User } from '../../../shared/types';
+import { User } from '@/shared/types';
 
 export interface AuthState {
   isAuthenticated: boolean;

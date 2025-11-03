@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_BASE_URL, API_ENDPOINTS } from '../../../shared/constants';
+import { API_BASE_URL, API_ENDPOINTS } from '@/shared/constants';
 import type { Booking, Settings, PaymentResponse } from '../types';
-import type { RootState } from '../../../app/store';
+import type { RootState } from '@/app/store';
 
 export const ticketsApi = createApi({
   reducerPath: 'ticketsApi',
