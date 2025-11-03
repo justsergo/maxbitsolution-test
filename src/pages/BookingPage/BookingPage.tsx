@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useGetMovieSessionDetailQuery } from '@/features/movies/api/moviesApi';
@@ -32,7 +32,7 @@ export const BookingPage = () => {
   const movie = movies?.find(m => m.id === sessionDetail?.movieId);
   const cinema = cinemas?.find(c => c.id === sessionDetail?.cinemaId);
 
-  const handleSeatToggle = (seat: Seat) => {
+  const handleSeatToggle = useCallback((seat: Seat) => {
     if (!isAuthenticated) return;
     
     setSelectedSeats(prev => {
@@ -43,9 +43,9 @@ export const BookingPage = () => {
         return [...prev, seat];
       }
     });
-  };
+  }, [isAuthenticated]);
 
-  const handleBooking = async () => {
+  const handleBooking = useCallback(async () => {
     if (!isAuthenticated) {
       navigate(ROUTES.LOGIN);
       return;
@@ -68,7 +68,7 @@ export const BookingPage = () => {
     } catch (error) {
       console.error('Booking failed:', error);
     }
-  };
+  }, [isAuthenticated, selectedSeats, bookSeats, sessionIdNum, refetch, refetchBookings, navigate]);
 
   if (sessionLoading) {
     return (

@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { formatTime } from '@/shared/utils';
 import { calculatePaymentTimeLeft } from '@/features/tickets/utils';
 import type { PaymentTimerProps } from '../types';
 import './PaymentTimer.scss';
 
-export const PaymentTimer = ({ bookingId, bookedAt, paymentTimeoutSeconds, onExpired }: PaymentTimerProps) => {
+export const PaymentTimer = memo(({ bookingId, bookedAt, paymentTimeoutSeconds, onExpired }: PaymentTimerProps) => {
   const [timeLeft, setTimeLeft] = useState<number>(0);
 
   useEffect(() => {
@@ -42,4 +42,6 @@ export const PaymentTimer = ({ bookingId, bookedAt, paymentTimeoutSeconds, onExp
       <span className="payment-timer__time">{formatTime(timeLeft)}</span>
     </div>
   );
-};
+});
+
+PaymentTimer.displayName = 'PaymentTimer';

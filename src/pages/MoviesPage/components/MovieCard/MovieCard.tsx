@@ -1,10 +1,14 @@
+import { memo, useCallback } from 'react';
 import { Icon } from '@/shared/ui/Icon';
 import { LookSessionsButton } from '@/shared/ui/LookSessionsButton';
 import { formatDuration, formatRating } from '@/features/movies/utils';
-import type { MovieCardProps } from '../types';
+import type { MovieCardProps } from '../../types';
 import './MovieCard.scss';
 
-export const MovieCard = ({ id, title, lengthMinutes, rating, posterImage }: MovieCardProps) => {
+export const MovieCard = memo(({ id, title, lengthMinutes, rating, posterImage }: MovieCardProps) => {
+  const handleImageError = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.style.display = 'none';
+  }, []);
 
   return (
     <div className="movie-card">
@@ -14,9 +18,7 @@ export const MovieCard = ({ id, title, lengthMinutes, rating, posterImage }: Mov
             src={posterImage} 
             alt={title}
             className="movie-card__image"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
+            onError={handleImageError}
           />
         ) : (
           <div className="movie-card__placeholder">
@@ -33,4 +35,6 @@ export const MovieCard = ({ id, title, lengthMinutes, rating, posterImage }: Mov
       </div>
     </div>
   );
-};
+});
+
+MovieCard.displayName = 'MovieCard';

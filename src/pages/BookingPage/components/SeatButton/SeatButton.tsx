@@ -1,7 +1,8 @@
-import type { SeatButtonProps } from '../types';
+import { memo, useMemo, useCallback } from 'react';
+import type { SeatButtonProps } from '../../types';
 import './SeatButton.scss';
 
-export const SeatButton = ({ 
+export const SeatButton = memo(({ 
   rowNumber, 
   seatNumber, 
   isBooked, 
@@ -9,35 +10,37 @@ export const SeatButton = ({
   isAuthenticated,
   onClick 
 }: SeatButtonProps) => {
-  const getClassName = () => {
-    let className = 'seat-button';
+  const className = useMemo(() => {
+    let cls = 'seat-button';
     
     if (isBooked) {
-      className += ' seat-button--booked';
+      cls += ' seat-button--booked';
     } else if (isSelected) {
-      className += ' seat-button--selected';
+      cls += ' seat-button--selected';
     } else {
-      className += ' seat-button--available';
+      cls += ' seat-button--available';
     }
     
     if (!isAuthenticated && !isBooked) {
-      className += ' seat-button--disabled';
+      cls += ' seat-button--disabled';
     }
     
-    return className;
-  };
+    return cls;
+  }, [isBooked, isSelected, isAuthenticated]);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (isBooked || (!isAuthenticated && !isBooked)) return;
     onClick();
-  };
+  }, [isBooked, isAuthenticated, onClick]);
 
   return (
     <button
-      className={getClassName()}
+      className={className}
       onClick={handleClick}
       disabled={isBooked || (!isAuthenticated && !isBooked)}
       aria-label={`Ряд ${rowNumber}, место ${seatNumber}`}
     />
   );
-};
+});
+
+SeatButton.displayName = 'SeatButton';

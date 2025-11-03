@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { usePayBookingMutation, useGetMyBookingsQuery } from '@/features/tickets/api/ticketsApi';
 import { useGetMovieSessionDetailQuery } from '@/features/movies/api/moviesApi';
 import { useGetMoviesQuery } from '@/features/movies/api/moviesApi';
@@ -9,7 +10,7 @@ import { formatSeats } from '@/features/booking/utils';
 import type { TicketCardProps } from '../../types';
 import './TicketCard.scss';
 
-export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketCardProps) => {
+export const TicketCard = memo(({ booking, paymentTimeoutSeconds, category }: TicketCardProps) => {
   const [payBooking, { isLoading: paymentLoading }] = usePayBookingMutation();
   const { refetch: refetchBookings } = useGetMyBookingsQuery(undefined, {
     skip: true,
@@ -22,13 +23,17 @@ export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketC
   const movie = movies.find(m => m.id === sessionDetail?.movieId);
   const cinema = cinemas.find(c => c.id === sessionDetail?.cinemaId);
 
-  const handlePayment = async () => {
+  const handlePayment = useCallback(async () => {
     try {
       await payBooking(booking.id).unwrap();
     } catch (error) {
       console.error('Payment failed:', error);
     }
-  };
+  }, [payBooking, booking.id]);
+
+  const handleTimerExpired = useCallback(() => {
+    refetchBookings();
+  }, [refetchBookings]);
 
   const sessionDateTime = sessionDetail?.startTime ? 
     formatDateTime(sessionDetail.startTime) : 
@@ -65,11 +70,13 @@ export const TicketCard = ({ booking, paymentTimeoutSeconds, category }: TicketC
               bookingId={booking.id}
               bookedAt={booking.bookedAt}
               paymentTimeoutSeconds={paymentTimeoutSeconds}
-              onExpired={() => refetchBookings()}
+              onExpired={handleTimerExpired}
             />
           </>
         )}
       </div>
     </div>
   );
-};
+});
+
+TicketCard.displayName = 'TicketCard';

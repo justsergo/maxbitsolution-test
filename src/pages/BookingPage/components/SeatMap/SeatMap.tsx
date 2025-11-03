@@ -1,8 +1,10 @@
+import { memo, useMemo, useCallback } from 'react';
 import { SeatButton } from '../SeatButton';
+import { isSeatBooked, isSeatSelected } from '@/features/booking/utils';
 import type { SeatMapProps } from '../../types';
 import './SeatMap.scss';
 
-export const SeatMap = ({ 
+export const SeatMap = memo(({ 
   rows, 
   seatsPerRow, 
   bookedSeats, 
@@ -10,22 +12,27 @@ export const SeatMap = ({
   onSeatToggle, 
   isAuthenticated 
 }: SeatMapProps) => {
-  const isBooked = (rowNumber: number, seatNumber: number) => {
-    return bookedSeats.some(seat => 
-      seat.rowNumber === rowNumber && seat.seatNumber === seatNumber
-    );
-  };
+  const seatRows = useMemo(() => {
+    return Array.from({ length: rows }, (_, rowIndex) => {
+      const rowNumber = rowIndex + 1;
+      return Array.from({ length: seatsPerRow }, (_, seatIndex) => {
+        const seatNumber = seatIndex + 1;
+        const seat = { rowNumber, seatNumber };
+        
+        return {
+          ...seat,
+          isBooked: isSeatBooked(seat, bookedSeats),
+          isSelected: isSeatSelected(seat, selectedSeats),
+        };
+      });
+    });
+  }, [rows, seatsPerRow, bookedSeats, selectedSeats]);
 
-  const isSelected = (rowNumber: number, seatNumber: number) => {
-    return selectedSeats.some(seat => 
-      seat.rowNumber === rowNumber && seat.seatNumber === seatNumber
-    );
-  };
-
-  const handleSeatClick = (rowNumber: number, seatNumber: number) => {
-    if (isBooked(rowNumber, seatNumber)) return;
-    onSeatToggle({ rowNumber, seatNumber });
-  };
+  const handleSeatClick = useCallback((rowNumber: number, seatNumber: number) => {
+    const seat = { rowNumber, seatNumber };
+    if (isSeatBooked(seat, bookedSeats)) return;
+    onSeatToggle(seat);
+  }, [bookedSeats, onSeatToggle]);
 
   return (
     <div className="seat-map">
@@ -38,29 +45,23 @@ export const SeatMap = ({
       </div>
 
       <div className="seat-map__rows">
-        {Array.from({ length: rows }, (_, rowIndex) => {
+        {seatRows.map((row, rowIndex) => {
           const rowNumber = rowIndex + 1;
           return (
             <div key={rowNumber} className="seat-map__row">
               <div className="seat-map__row-label">ряд {rowNumber}</div>
               <div className="seat-map__seats">
-                {Array.from({ length: seatsPerRow }, (_, seatIndex) => {
-                  const seatNumber = seatIndex + 1;
-                  const booked = isBooked(rowNumber, seatNumber);
-                  const selected = isSelected(rowNumber, seatNumber);
-                  
-                  return (
-                    <SeatButton
-                      key={seatNumber}
-                      rowNumber={rowNumber}
-                      seatNumber={seatNumber}
-                      isBooked={booked}
-                      isSelected={selected}
-                      isAuthenticated={isAuthenticated}
-                      onClick={() => handleSeatClick(rowNumber, seatNumber)}
-                    />
-                  );
-                })}
+                {row.map((seat) => (
+                  <SeatButton
+                    key={seat.seatNumber}
+                    rowNumber={seat.rowNumber}
+                    seatNumber={seat.seatNumber}
+                    isBooked={seat.isBooked}
+                    isSelected={seat.isSelected}
+                    isAuthenticated={isAuthenticated}
+                    onClick={() => handleSeatClick(seat.rowNumber, seat.seatNumber)}
+                  />
+                ))}
               </div>
             </div>
           );
@@ -68,4 +69,6 @@ export const SeatMap = ({
       </div>
     </div>
   );
-};
+});
+
+SeatMap.displayName = 'SeatMap';
